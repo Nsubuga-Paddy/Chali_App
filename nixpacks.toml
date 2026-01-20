@@ -1,0 +1,24 @@
+[phases.setup]
+nixPkgs = ["nodejs-18_x", "python311", "python311Packages.pip"]
+
+[phases.install]
+cmds = [
+  "npm ci --omit=dev --ignore-scripts || npm install --omit=dev",
+  "pip install --no-cache-dir -r requirements.txt"
+]
+
+[phases.build]
+cmds = [
+  "echo 'Converting knowledge bases to chunks (if needed)...'",
+  "python convert_mtn_to_chunks.py || echo 'Warning: MTN chunks conversion skipped (may already exist)'",
+  "echo 'Building vector databases...'",
+  "python build_all_vector_dbs.py || echo 'Warning: Some vector databases may not have been built'",
+  "npm run build"
+]
+
+[start]
+cmd = "npm start"
+
+[variables]
+NODE_ENV = "production"
+PYTHON_VERSION = "3.11"

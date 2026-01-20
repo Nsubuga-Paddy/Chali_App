@@ -1,0 +1,117 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# next.js
+.next/
+out/
+build
+dist
+
+# production
+*.log
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+.pytest_cache/
+
+# Railway
+.railway/
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Windows batch scripts
+*.bat
+
+# Development documentation (keep only README.md)
+README_DEPLOYMENT.md
+ADDING_*.md
+ADMIN_*.md
+CHAT_*.md
+CONTACT_*.md
+DEBUG_*.md
+ELEVENLABS_*.md
+FIREBASE_*.md
+FLOATING_*.md
+GETTING_*.md
+INSTALLATION_*.md
+INTEGRATION_*.md
+KNOWLEDGE_BASE_*.md
+NEW_*.md
+OPENAI_*.md
+QUICK_START_*.md
+RAG_*.md
+TESTING_*.md
+TEST_*.md
+VOICE_*.md
+DEPLOYMENT.md
+DEPLOYMENT_GUIDE.md
+FIRESTORE_INDEX_SETUP.md
+FLEXIBLE_KNOWLEDGE_BASE_SYSTEM.md
+CONTACTS_LOADING_FIX.md
+NWSC_VECTOR_SETUP.md
+URA_VECTOR_SETUP.md
+SETUP.md
+PROJECT_SUMMARY.md
+FEATURES.md
+LICENSE
+
+# Test files
+test_*.js
+
+# Vector databases (will be rebuilt during deployment)
+*_vector_db/
+mtn_vector_db/
+nwsc_vector_db/
+ura_vector_db/
+uedcl_vector_db/
+
+# Local data
+data/
+
+# Chunk files - KEEP THESE (needed to rebuild vector databases during deployment)
+# Do NOT ignore: *_chunks.json (mtn_chunks.json, ura_chunks.json, etc.)
+
+# Build scripts - KEEP THESE (needed for deployment)
+# build_*.py
+# convert_*.py
+
+# Prettier config (optional)
+.prettierrc

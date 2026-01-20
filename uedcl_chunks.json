@@ -1,0 +1,648 @@
+{
+  "crawl_date": "2025-12-26 06:03:47",
+  "source": "UEDCL (Uganda Electricity Distribution Company Limited)",
+  "total_chunks": 27,
+  "chunks_by_category": {
+    "Service Territory": 1,
+    "Tariffs and Pricing": 1,
+    "tariff": 9,
+    "Contact and Support": 1,
+    "Outage Information": 1,
+    "outage": 10,
+    "FAQs": 1,
+    "faq": 3
+  },
+  "chunks": [
+    {
+      "source_url": "https://www.uedcl.co.ug/north-north-west-service-territory-cnst/",
+      "category": "Service Territory",
+      "raw_text": "The north north west service territory (NNWST) covers seven (7) districts in northern Uganda which include; Amuru, Gulu, Kole, Oyam, Adjumani, Moyo, Anaka, Pader. To effectively coordinate operations in the territory, UEDCL has established four (7 fully-fledged support offices at Gulu, Otwal, Adjumani, Kamdini, Pabbo, Anaka & Moyo. The respective contact offices together with local leadership handle a myriad of customer-related needs including; electric faults/reports, connections, tokens, and safety. All these principles are geared to ensuring power availability and reliability which directly feeds into socio-economic development. The CNST has a customer base of 8102 in following strata’s; The territory operations are coordinated by a territory manager (TM), assisted by managers, assistant managers, technical assistants, linesmen, assistant linesmen, office administrators, and a regional customer care officer. UEDCL is also at the forefront of implementing the government of Uganda programme on free electricity connection policy (ECP) aimed at increasing access to electricity in rural areas. Cost: Free service Contact: +256703136424",
+      "cleaned_text": "The north north west service territory (NNWST) covers seven (7) districts in northern Uganda which include; Amuru, Gulu, Kole, Oyam, Adjumani, Moyo, Anaka, Pader. To effectively coordinate operations in the territory, UEDCL has established four (7 fully-fledged support offices at Gulu, Otwal, Adjumani, Kamdini, Pabbo, Anaka & Moyo. The respective contact offices together with local leadership handle a myriad of customer-related needs including; electric faults/reports, connections, tokens, and safety. All these principles are geared to ensuring power availability and reliability which directly feeds into socio-economic development. The CNST has a customer base of 8102 in following strata’s; The territory operations are coordinated by a territory manager (TM), assisted by managers, assistant managers, technical assistants, linesmen, assistant linesmen, office administrators, and a regional customer care officer. UEDCL is also at the forefront of implementing the government of Uganda programme on free electricity connection policy (ECP) aimed at increasing access to electricity in rural areas. Cost: Free service Contact: +256703136424",
+      "section_type": "overview",
+      "page_title": "North North West Service Territory",
+      "headings": [
+        "North North West Service Territory"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h1",
+        "has_contact_info": true,
+        "chunk_length": 1150
+      },
+      "token_count": 158
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/approved-tariffs/",
+      "category": "Tariffs and Pricing",
+      "raw_text": "The Uganda Electricity Distribution Company Limited (UEDCL) hereby informs its esteemed customers of the following Electricity Retail Tariff rates applicable for the period of October to December 2025 as approved by the Electricity Regulatory Authority (ERA) as below: 1.The schedule of electricity end user retail tariffs shall be applicable to all consumer bills raised based on meter readings taken from October to December 2025 for customers on post- paid billing system. For customers on prepaid system (Light), the rates shall apply to electricity purchases made. 2.The lifeline tariff applies to only domestic customers whose consumption does not exceed 100 units per month based on the six months moving average, with the first 15 units charged at a lifeline tariff of UGX 250 per kWh. Pricing: 5.The pegged to demand tariff shall only be applicable to Extra-large industrial customers. | The Uganda Electricity Distribution Company Limited (UEDCL) hereby informs its esteemed customers of the following Electricity Retail Tariff rates applicable for the period of October to December 2025 as approved by the Electricity Regulatory Authority (ERA) as below: | 4.The Authority has ceased implementation of the declining block tariff for Extra-large industries except for Large Industrial Consumers. The thresholds shall be communicated to the respective consumers by UEDCL. | 6.The Electricity Regulatory Authority introduced a new set of tariffs for customers engaged in manufacturing and provision of service. These new categories of consumers are under Medium Industrial Consumers and Large Industrial consumers. | Electricity End User Tariffs... | 2.The lifeline tariff applies to only domestic customers whose consumption does not exceed 100 units per month based on the six months moving average, with the first 15 units charged at a lifeline tariff of UGX 250 per kWh. | 1.The schedule of electricity end user retail tariffs shall be applicable to all consumer bills raised based on meter readings taken from October to December 2025 for customers on post- paid billing system. For customers on prepaid system (Light), the rates shall apply to electricity purchases made. | 3.Other charges such as fixed monthly charges, maximum demand charges, inspection fees, new connection charges, reconnection fees and penalties for power theft remain unchanged. Cost: UGX 250 | Free service Contact: Toll Free: 0800203088 | 0800203088",
+      "cleaned_text": "The Uganda Electricity Distribution Company Limited (UEDCL) hereby informs its esteemed customers of the following Electricity Retail Tariff rates applicable for the period of October to December 2025 as approved by the Electricity Regulatory Authority (ERA) as below: 1.The schedule of electricity end user retail tariffs shall be applicable to all consumer bills raised based on meter readings taken from October to December 2025 for customers on post- paid billing system. For customers on prepaid system (Light), the rates shall apply to electricity purchases made. 2.The lifeline tariff applies to only domestic customers whose consumption does not exceed 100 units per month based on the six months moving average, with the first 15 units charged at a lifeline tariff of UGX 250 per kWh. Pricing: 5.The pegged to demand tariff shall only be applicable to Extra-large industrial customers. | The Uganda Electricity Distribution Company Limited (UEDCL) hereby informs its esteemed customers of the following Electricity Retail Tariff rates applicable for the period of October to December 2025 as approved by the Electricity Regulatory Authority (ERA) as below: | 4.The Authority has ceased implementation of the declining block tariff for Extra-large industries except for Large Industrial Consumers. The thresholds shall be communicated to the respective consumers by UEDCL. | 6.The Electricity Regulatory Authority introduced a new set of tariffs for customers engaged in manufacturing and provision of service. These new categories of consumers are under Medium Industrial Consumers and Large Industrial consumers. | Electricity End User Tariffs... | 2.The lifeline tariff applies to only domestic customers whose consumption does not exceed 100 units per month based on the six months moving average, with the first 15 units charged at a lifeline tariff of UGX 250 per kWh. | 1.The schedule of electricity end user retail tariffs shall be applicable to all consumer bills raised based on meter readings taken from October to December 2025 for customers on post- paid billing system. For customers on prepaid system (Light), the rates shall apply to electricity purchases made. | 3.Other charges such as fixed monthly charges, maximum demand charges, inspection fees, new connection charges, reconnection fees and penalties for power theft remain unchanged. Cost: UGX 250 | Free service Contact: Toll Free: 0800203088 | 0800203088",
+      "section_type": "overview",
+      "page_title": "Electricity Tariffs",
+      "headings": [
+        "Electricity Tariffs"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h1",
+        "has_contact_info": true,
+        "chunk_length": 2438
+      },
+      "token_count": 371
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/approved-tariffs/",
+      "category": "tariff",
+      "raw_text": "DOMESTIC CONSUMERS CODE 10.1Low Voltage Single Phase supplied at 240 volts First 15 kwh in a month 250.0Units between 16-80 kwh 756.2Units between 81-150 kwh 412.0Units above 150 kwh 756.2",
+      "cleaned_text": "DOMESTIC CONSUMERS CODE 10.1Low Voltage Single Phase supplied at 240 volts First 15 kwh in a month 250.0Units between 16-80 kwh 756.2Units between 81-150 kwh 412.0Units above 150 kwh 756.2",
+      "section_type": "pricing",
+      "page_title": "Electricity Tariffs - Tariff",
+      "headings": [
+        "Tariff Information"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 188
+      },
+      "token_count": 30
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/approved-tariffs/",
+      "category": "tariff",
+      "raw_text": "COMMERICAL CONSUMERS – CODE 10.2.Three-phase low voltage load not exceeding 100 Amperes. Peak 650.8Shoulder 546.4Off- Peak 414Average 546.4",
+      "cleaned_text": "COMMERICAL CONSUMERS – CODE 10.2.Three-phase low voltage load not exceeding 100 Amperes. Peak 650.8Shoulder 546.4Off- Peak 414Average 546.4",
+      "section_type": "pricing",
+      "page_title": "Electricity Tariffs - Tariff",
+      "headings": [
+        "Tariff Information"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 139
+      },
+      "token_count": 18
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/approved-tariffs/",
+      "category": "tariff",
+      "raw_text": "MEDIUM CONSUMERS – MANUFACTURING – CODE 20.1.Low voltage 415Volts, with maximum demand up to 500kVA. Peak 428.0Shoulder 355.1Off- Peak 275.6Average 355.1",
+      "cleaned_text": "MEDIUM CONSUMERS – MANUFACTURING – CODE 20.1.Low voltage 415Volts, with maximum demand up to 500kVA. Peak 428.0Shoulder 355.1Off- Peak 275.6Average 355.1",
+      "section_type": "pricing",
+      "page_title": "Electricity Tariffs - Tariff",
+      "headings": [
+        "Tariff Information"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 153
+      },
+      "token_count": 21
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/approved-tariffs/",
+      "category": "tariff",
+      "raw_text": "MEDIUM CONSUMERS – SERVICE – CODE 20.2.Low voltage 415Volts, with maximum demand up to 500kVA. Peak 497.5Shoulder 412.8Off- Peak 320.4Average 412.8",
+      "cleaned_text": "MEDIUM CONSUMERS – SERVICE – CODE 20.2.Low voltage 415Volts, with maximum demand up to 500kVA. Peak 497.5Shoulder 412.8Off- Peak 320.4Average 412.8",
+      "section_type": "pricing",
+      "page_title": "Electricity Tariffs - Tariff",
+      "headings": [
+        "Tariff Information"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 147
+      },
+      "token_count": 21
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/approved-tariffs/",
+      "category": "tariff",
+      "raw_text": "LARGE INDUSTRIAL CONSUMERS – MANUFACTURING – CODE 30.1.High Voltage 11,000Volts or 33,000Volts, with maximum demand exceeding 500kVAbut up to 1,500 kVA. BLOCK 1. Peak 370.5Shoulder 300.4Off- Peak 231.6Average 300.4",
+      "cleaned_text": "LARGE INDUSTRIAL CONSUMERS – MANUFACTURING – CODE 30.1.High Voltage 11,000Volts or 33,000Volts, with maximum demand exceeding 500kVAbut up to 1,500 kVA. BLOCK 1. Peak 370.5Shoulder 300.4Off- Peak 231.6Average 300.4",
+      "section_type": "pricing",
+      "page_title": "Electricity Tariffs - Tariff",
+      "headings": [
+        "Tariff Information"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 214
+      },
+      "token_count": 29
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/approved-tariffs/",
+      "category": "tariff",
+      "raw_text": "Large Industrial Consumers – Manufacturing – CODE 30.1.High voltage 11,000 volts or 33,000 volts with maximum demand exceeding 500 kVAbut up to 1,500 kVA BLOCK 2(Declining Block). Peak349.0Shoulder 282.9Off- Peak 218.1Average 282.9",
+      "cleaned_text": "Large Industrial Consumers – Manufacturing – CODE 30.1.High voltage 11,000 volts or 33,000 volts with maximum demand exceeding 500 kVAbut up to 1,500 kVA BLOCK 2(Declining Block). Peak349.0Shoulder 282.9Off- Peak 218.1Average 282.9",
+      "section_type": "pricing",
+      "page_title": "Electricity Tariffs - Tariff",
+      "headings": [
+        "Tariff Information"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 231
+      },
+      "token_count": 32
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/approved-tariffs/",
+      "category": "tariff",
+      "raw_text": "LARGE INDUSTRIAL CONSUMERS – SERVICE – CODE 30.2.High Voltage 11,000Volts or 33,000Volts, with maximum demand exceeding 500kVA but up to 1,500 kVA. Peak 420.5Shoulder 348.7Off- Peak 278.2Average 348.7",
+      "cleaned_text": "LARGE INDUSTRIAL CONSUMERS – SERVICE – CODE 30.2.High Voltage 11,000Volts or 33,000Volts, with maximum demand exceeding 500kVA but up to 1,500 kVA. Peak 420.5Shoulder 348.7Off- Peak 278.2Average 348.7",
+      "section_type": "pricing",
+      "page_title": "Electricity Tariffs - Tariff",
+      "headings": [
+        "Tariff Information"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 200
+      },
+      "token_count": 28
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/approved-tariffs/",
+      "category": "tariff",
+      "raw_text": "EXTRA LARGE INDUSTRIAL CONSUMERS – CODE 40High Voltage11,000V or 33,000V, with an Average Demand of at least1,500kVA and dealing in manufacturing. Peak 229.1Shoulder 203.6Off- Peak 184.6Average 203.6",
+      "cleaned_text": "EXTRA LARGE INDUSTRIAL CONSUMERS – CODE 40High Voltage11,000V or 33,000V, with an Average Demand of at least1,500kVA and dealing in manufacturing. Peak 229.1Shoulder 203.6Off- Peak 184.6Average 203.6",
+      "section_type": "pricing",
+      "page_title": "Electricity Tariffs - Tariff",
+      "headings": [
+        "Tariff Information"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 199
+      },
+      "token_count": 27
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/approved-tariffs/",
+      "category": "tariff",
+      "raw_text": "PUBLIC AMENITIES – CODE 50.Public Hospitals and Street Lighting provided byMunicipalities/Cities/Towns. Average 360.0",
+      "cleaned_text": "PUBLIC AMENITIES – CODE 50.Public Hospitals and Street Lighting provided byMunicipalities/Cities/Towns. Average 360.0",
+      "section_type": "pricing",
+      "page_title": "Electricity Tariffs - Tariff",
+      "headings": [
+        "Tariff Information"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 117
+      },
+      "token_count": 13
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/contact-us/",
+      "category": "Contact and Support",
+      "raw_text": "Cost: Free service Features: UEDCL tower | 6th floor Plot 37, Nakasero road P.O.Box 7390 Kampala, Uganda | Telephone: 256 312 330 300 Fax: 256 414 255 600",
+      "cleaned_text": "Cost: Free service Features: UEDCL tower | 6th floor Plot 37, Nakasero road P.O.Box 7390 Kampala, Uganda | Telephone: 256 312 330 300 Fax: 256 414 255 600",
+      "section_type": "overview",
+      "page_title": "Customer Support Contacts",
+      "headings": [
+        "Customer Support Contacts"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h1",
+        "has_contact_info": false,
+        "chunk_length": 154
+      },
+      "token_count": 28
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/outage-alerts/",
+      "category": "Outage Information",
+      "raw_text": "Pricing: Nsooda Atc Mast,Kawempe Mbogo,Kawempe Hariss International,Kawempe Town,Spencon,Kyadondo ,Tula Rd,Ngondwe Feeds,Jinja Kawempe,Maganjo,Kagoma,Kidokolo",
+      "cleaned_text": "Pricing: Nsooda Atc Mast,Kawempe Mbogo,Kawempe Hariss International,Kawempe Town,Spencon,Kyadondo ,Tula Rd,Ngondwe Feeds,Jinja Kawempe,Maganjo,Kagoma,Kidokolo",
+      "section_type": "overview",
+      "page_title": "Power Outage Alerts",
+      "headings": [
+        "Power Outage Alerts"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h1",
+        "has_contact_info": false,
+        "chunk_length": 159
+      },
+      "token_count": 12
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/outage-alerts/",
+      "category": "outage",
+      "raw_text": "District: BANDA - Status: Pending - Affected Areas: Ntinda, Kisaasi, Kisota, Kyanja, Kulambiro, Bahai",
+      "cleaned_text": "District: BANDA - Status: Pending - Affected Areas: Ntinda, Kisaasi, Kisota, Kyanja, Kulambiro, Bahai",
+      "section_type": "alert",
+      "page_title": "Power Outage - BANDA",
+      "headings": [
+        "Outage in BANDA"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 101,
+        "date": "2025-12-23 21:58"
+      },
+      "token_count": 14
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/outage-alerts/",
+      "category": "outage",
+      "raw_text": "District: MUBENDE - Status: Patrolling - Affected Areas: Kabamba Masts,Kabamba Barracks,Nakawara Mtn Masts,Kasambya T.C,Kigando Water Pump,Mukaaga T.C,Kanogoga T.C,Hossana Seed Ss,Cauality Barracks,Mubende Shell.",
+      "cleaned_text": "District: MUBENDE - Status: Patrolling - Affected Areas: Kabamba Masts,Kabamba Barracks,Nakawara Mtn Masts,Kasambya T.C,Kigando Water Pump,Mukaaga T.C,Kanogoga T.C,Hossana Seed Ss,Cauality Barracks,Mubende Shell.",
+      "section_type": "alert",
+      "page_title": "Power Outage - MUBENDE",
+      "headings": [
+        "Outage in MUBENDE"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 212,
+        "date": "2025-12-23 18:12"
+      },
+      "token_count": 22
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/outage-alerts/",
+      "category": "outage",
+      "raw_text": "District: MBALE - Status: Pending - Affected Areas: butebo, nasuleta, matakokore, petete, kodir, kaderuna",
+      "cleaned_text": "District: MBALE - Status: Pending - Affected Areas: butebo, nasuleta, matakokore, petete, kodir, kaderuna",
+      "section_type": "alert",
+      "page_title": "Power Outage - MBALE",
+      "headings": [
+        "Outage in MBALE"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 105,
+        "date": "2025-12-23 17:30"
+      },
+      "token_count": 14
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/outage-alerts/",
+      "category": "outage",
+      "raw_text": "District: MBARARA - Status: Feeder Partly In - Affected Areas: Katinda, Nyabushenyi, Nombe, Katojo, Omugyenyi, Karubugarubare, Kyempene, Kyabirara, Kacerere, Rwentobo, Rwahi, Nyakitabire, Kamwezi(Fedsult), Muhanga-Rugeyo (Ferdsult)Muhanga Tc,Bukinda, Nkumbura,Nyakigugwe,Kaharo, Nyanja, Kizinga, Kamuronko, Maziba,Kabanyonyi,Kigata, Kyanamira, Nyakijumba, Kabalewest, Kabale-Kisoro(Fedsult)I, Mwisi,Kitumba, Muyebe, Katiba, Chicumbi,Kyonyo, Kasheregyenyi, Katuna Boarder, Rwanda, Kyasano, Kibuga, Kakoma, Rukore, Ryakalimira, Rubaya,Kacerere, Habubare, Bigaga, Rugando,Yesu Ahurire,Rucece, Kibingo, College,Kinoni,Nyeihanga,Buteraniro,Itojo,Ntungamo,Karegyeya,Kagamba",
+      "cleaned_text": "District: MBARARA - Status: Feeder Partly In - Affected Areas: Katinda, Nyabushenyi, Nombe, Katojo, Omugyenyi, Karubugarubare, Kyempene, Kyabirara, Kacerere, Rwentobo, Rwahi, Nyakitabire, Kamwezi(Fedsult), Muhanga-Rugeyo (Ferdsult)Muhanga Tc,Bukinda, Nkumbura,Nyakigugwe,Kaharo, Nyanja, Kizinga, Kamuronko, Maziba,Kabanyonyi,Kigata, Kyanamira, Nyakijumba, Kabalewest, Kabale-Kisoro(Fedsult)I, Mwisi,Kitumba, Muyebe, Katiba, Chicumbi,Kyonyo, Kasheregyenyi, Katuna Boarder, Rwanda, Kyasano, Kibuga, Kakoma, Rukore, Ryakalimira, Rubaya,Kacerere, Habubare, Bigaga, Rugando,Yesu Ahurire,Rucece, Kibingo, College,Kinoni,Nyeihanga,Buteraniro,Itojo,Ntungamo,Karegyeya,Kagamba",
+      "section_type": "alert",
+      "page_title": "Power Outage - MBARARA",
+      "headings": [
+        "Outage in MBARARA"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 667,
+        "date": "2025-12-23 17:21"
+      },
+      "token_count": 55
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/outage-alerts/",
+      "category": "outage",
+      "raw_text": "District: WANDEGEYA - Status: Feeder Partly In - Affected Areas: Nsooda Atc Mast,Kawempe Mbogo,Kawempe Hariss International,Kawempe Town,Spencon,Kyadondo ,Tula Rd,Ngondwe Feeds,Jinja Kawempe,Maganjo,Kagoma,Kidokolo",
+      "cleaned_text": "District: WANDEGEYA - Status: Feeder Partly In - Affected Areas: Nsooda Atc Mast,Kawempe Mbogo,Kawempe Hariss International,Kawempe Town,Spencon,Kyadondo ,Tula Rd,Ngondwe Feeds,Jinja Kawempe,Maganjo,Kagoma,Kidokolo",
+      "section_type": "alert",
+      "page_title": "Power Outage - WANDEGEYA",
+      "headings": [
+        "Outage in WANDEGEYA"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 215,
+        "date": "2025-12-23 16:33"
+      },
+      "token_count": 21
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/outage-alerts/",
+      "category": "outage",
+      "raw_text": "District: LUGAZI - Status: Feeder Partly In - Affected Areas: Lugazi Town, Kulubya Housing Estate, Lugazi Hospital,Urc Pumping Station, Post Office, Lugazi Central Police Station, Kawuku, Kibubu, Bulyantete, Sagazi, Namengo, Utl- Lugazi, Lugazi Mixed S.S.S., Kasubi, Nakatiaba, Ngogwe, Ziba, Mayirikiti, Nkokonjeru Tc, Kevina Bakery, Lubanyi, Nakazzade, Namengo, Mutesa Memorial College, Nangunga Tc, Buundo, Najjembe, Bamungaya Estate, Buwundolweru Tc, Malongwe, Ajija, Kasala, Lugasa, Bwera, Kasimba, Najja, Kikondo, Zinga, Kakunyu, Kiyindi Landing Site, Kitega Tc, Kikawula Tc",
+      "cleaned_text": "District: LUGAZI - Status: Feeder Partly In - Affected Areas: Lugazi Town, Kulubya Housing Estate, Lugazi Hospital,Urc Pumping Station, Post Office, Lugazi Central Police Station, Kawuku, Kibubu, Bulyantete, Sagazi, Namengo, Utl- Lugazi, Lugazi Mixed S.S.S., Kasubi, Nakatiaba, Ngogwe, Ziba, Mayirikiti, Nkokonjeru Tc, Kevina Bakery, Lubanyi, Nakazzade, Namengo, Mutesa Memorial College, Nangunga Tc, Buundo, Najjembe, Bamungaya Estate, Buwundolweru Tc, Malongwe, Ajija, Kasala, Lugasa, Bwera, Kasimba, Najja, Kikondo, Zinga, Kakunyu, Kiyindi Landing Site, Kitega Tc, Kikawula Tc",
+      "section_type": "alert",
+      "page_title": "Power Outage - LUGAZI",
+      "headings": [
+        "Outage in LUGAZI"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 579,
+        "date": "2025-12-23 09:13"
+      },
+      "token_count": 75
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/outage-alerts/",
+      "category": "outage",
+      "raw_text": "District: BUSHENYI - Status: Ongoing - Affected Areas: kanyamabona,kasshenyi,kitabi,katenga,mitooma,kashensero,ijumo,nyakishojwa,kyeibaale,mutara,ibaale,kitagata,rwamabondo,kibatsi,kagamba,kimwanyi,kebisoni,nyamunuka,buyanja,nyakibale,rukungiri t.c",
+      "cleaned_text": "District: BUSHENYI - Status: Ongoing - Affected Areas: kanyamabona,kasshenyi,kitabi,katenga,mitooma,kashensero,ijumo,nyakishojwa,kyeibaale,mutara,ibaale,kitagata,rwamabondo,kibatsi,kagamba,kimwanyi,kebisoni,nyamunuka,buyanja,nyakibale,rukungiri t.c",
+      "section_type": "alert",
+      "page_title": "Power Outage - BUSHENYI",
+      "headings": [
+        "Outage in BUSHENYI"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 248,
+        "date": "2025-12-22 09:48"
+      },
+      "token_count": 10
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/outage-alerts/",
+      "category": "outage",
+      "raw_text": "District: BOMBO - Status: Feeder Partly In - Affected Areas: Nakasongola Town, Nakasongola Barracks, Luwero Industries, Monde Village, Luwero State Lodge",
+      "cleaned_text": "District: BOMBO - Status: Feeder Partly In - Affected Areas: Nakasongola Town, Nakasongola Barracks, Luwero Industries, Monde Village, Luwero State Lodge",
+      "section_type": "alert",
+      "page_title": "Power Outage - BOMBO",
+      "headings": [
+        "Outage in BOMBO"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 153,
+        "date": "2025-12-21 12:32"
+      },
+      "token_count": 21
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/outage-alerts/",
+      "category": "outage",
+      "raw_text": "District: BOMBO - Status: Feeder Partly In - Affected Areas: lumpewe, matabi, wabitunda, kibose, kikamulo, Kiwoko TC and surrounding areas",
+      "cleaned_text": "District: BOMBO - Status: Feeder Partly In - Affected Areas: lumpewe, matabi, wabitunda, kibose, kikamulo, Kiwoko TC and surrounding areas",
+      "section_type": "alert",
+      "page_title": "Power Outage - BOMBO",
+      "headings": [
+        "Outage in BOMBO"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 138,
+        "date": "2025-12-20 11:13"
+      },
+      "token_count": 20
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/outage-alerts/",
+      "category": "outage",
+      "raw_text": "District: NATETE - Status: Ongoing - Affected Areas: Kampala South Substation.",
+      "cleaned_text": "District: NATETE - Status: Ongoing - Affected Areas: Kampala South Substation.",
+      "section_type": "alert",
+      "page_title": "Power Outage - NATETE",
+      "headings": [
+        "Outage in NATETE"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 78,
+        "date": "2025-12-19 20:58"
+      },
+      "token_count": 11
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/faqs/",
+      "category": "FAQs",
+      "raw_text": "1. Get a wireman (Power Kapo) certified by ERA to do for you house wiring and upon completion, he/she will issue you with two documents. 2. Present these documents to any of the UEDCL office/s in your locality upon which you will be given application form to fill. While returning the filled in application form, you will come along with; Pricing: 3. You'll then be required to pay Inspection and Initial energy fees via Mobile money or bank depending on how you'll be advised from our office. (The fees may vary depending on the phase a customer is interested in). Cost: Free service Contact: 0800203088",
+      "cleaned_text": "1. Get a wireman (Power Kapo) certified by ERA to do for you house wiring and upon completion, he/she will issue you with two documents. 2. Present these documents to any of the UEDCL office/s in your locality upon which you will be given application form to fill. While returning the filled in application form, you will come along with; Pricing: 3. You'll then be required to pay Inspection and Initial energy fees via Mobile money or bank depending on how you'll be advised from our office. (The fees may vary depending on the phase a customer is interested in). Cost: Free service Contact: 0800203088",
+      "section_type": "overview",
+      "page_title": "Frequently Asked Questions",
+      "headings": [
+        "Frequently Asked Questions"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h1",
+        "has_contact_info": true,
+        "chunk_length": 604
+      },
+      "token_count": 105
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/faqs/",
+      "category": "faq",
+      "raw_text": "Q: HOW DO I GET AN ELECTRICITY CONNECTION? A: 1. Get a wireman (Power Kapo) certified by ERA to do for you house wiring and upon completion, he/she will issue you with two documents. i) A wiring certificate and ii) a photocopy of his permit. 2. Present these documents to any of the UEDCL office/s in your locality upon which you will be given application form to fill. While returning the filled in application form, you will come along with; i) 2 passport size coloured photos ii) Recommendation letter from LC1 chairperson iii) Document confirming property ownership I. E land title, a letter from landlord in case it's the tenant applying. iv) Identification documents i. e photocopy of National ID or Driving permit v) A map showing where the site is. 3. You'll then be required to pay Inspection and Initial energy fees via Mobile money or bank depending on how you'll be advised from our office. (The fees may vary depending on the phase a customer is interested in). 4. Our technical surveyor will then visit your site/ premises t to cross-check the standard of wiring. 5.Upon passing the survey, a meter will be allocated to the customer and will later be taken to site for connection.",
+      "cleaned_text": "Q: HOW DO I GET AN ELECTRICITY CONNECTION? A: 1. Get a wireman (Power Kapo) certified by ERA to do for you house wiring and upon completion, he/she will issue you with two documents. i) A wiring certificate and ii) a photocopy of his permit. 2. Present these documents to any of the UEDCL office/s in your locality upon which you will be given application form to fill. While returning the filled in application form, you will come along with; i) 2 passport size coloured photos ii) Recommendation letter from LC1 chairperson iii) Document confirming property ownership I. E land title, a letter from landlord in case it's the tenant applying. iv) Identification documents i. e photocopy of National ID or Driving permit v) A map showing where the site is. 3. You'll then be required to pay Inspection and Initial energy fees via Mobile money or bank depending on how you'll be advised from our office. (The fees may vary depending on the phase a customer is interested in). 4. Our technical surveyor will then visit your site/ premises t to cross-check the standard of wiring. 5.Upon passing the survey, a meter will be allocated to the customer and will later be taken to site for connection.",
+      "section_type": "faq",
+      "page_title": "Frequently Asked Questions - FAQ",
+      "headings": [
+        "HOW DO I GET AN ELECTRICITY CONNECTION?"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 1194
+      },
+      "token_count": 208
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/faqs/",
+      "category": "faq",
+      "raw_text": "Q: HOW DO I RETRIEVE MY TOKEN? A: Tokens also form the biggest chunk of complaints raised by the customers who consume our energy. This is caused by a number of technical factors, but most common, is network fluctuation from the telecom service providers. For those customers vending from MTN network, you as a customer can serve yourself by following the procedure below; Dial *165# and press okay/yes Select option 4: Payments Select option 1: Utilities Select Option 2: UEDCL Under Option 2: Get UEDCL last token and the story is closed. Those vending on Airtel, the modus for customer self-help is not yet available. So we encourage you to call our toll free customer call centre number at 0800203088. You can also find us on social media @UEDCLTD Twitter & @UEDCLTD on Facebook/Messenger and ask for expeditious help.",
+      "cleaned_text": "Q: HOW DO I RETRIEVE MY TOKEN? A: Tokens also form the biggest chunk of complaints raised by the customers who consume our energy. This is caused by a number of technical factors, but most common, is network fluctuation from the telecom service providers. For those customers vending from MTN network, you as a customer can serve yourself by following the procedure below; Dial *165# and press okay/yes Select option 4: Payments Select option 1: Utilities Select Option 2: UEDCL Under Option 2: Get UEDCL last token and the story is closed. Those vending on Airtel, the modus for customer self-help is not yet available. So we encourage you to call our toll free customer call centre number at 0800203088. You can also find us on social media @UEDCLTD Twitter & @UEDCLTD on Facebook/Messenger and ask for expeditious help.",
+      "section_type": "faq",
+      "page_title": "Frequently Asked Questions - FAQ",
+      "headings": [
+        "HOW DO I RETRIEVE MY TOKEN?"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 822
+      },
+      "token_count": 139
+    },
+    {
+      "source_url": "https://www.uedcl.co.ug/faqs/",
+      "category": "faq",
+      "raw_text": "Q: WHO DETERMINES THE ELECTRICITY TARIFF? A: This is one of the most customer featured questions from all UEDCL communication channels. The responsibility of setting the end user tariff is not of UEDCL nor any other electricity distributor in the country. This function is executed by the Electricity Regulatory Authority (ERA) in accordance to the 1999 electricity act and does so every quarter in a year. This means, three tariff schedules are issued by ERA every year and are effectively implemented by UEDCL to its customers. Further details about electricity tariffs can be obtained from www.era.go.ug.",
+      "cleaned_text": "Q: WHO DETERMINES THE ELECTRICITY TARIFF? A: This is one of the most customer featured questions from all UEDCL communication channels. The responsibility of setting the end user tariff is not of UEDCL nor any other electricity distributor in the country. This function is executed by the Electricity Regulatory Authority (ERA) in accordance to the 1999 electricity act and does so every quarter in a year. This means, three tariff schedules are issued by ERA every year and are effectively implemented by UEDCL to its customers. Further details about electricity tariffs can be obtained from www.era.go.ug.",
+      "section_type": "faq",
+      "page_title": "Frequently Asked Questions - FAQ",
+      "headings": [
+        "WHO DETERMINES THE ELECTRICITY TARIFF?"
+      ],
+      "contact_info": {
+        "phones": [],
+        "emails": [],
+        "addresses": [],
+        "offices": []
+      },
+      "metadata": {
+        "section_level": "h2",
+        "has_contact_info": false,
+        "chunk_length": 607
+      },
+      "token_count": 96
+    }
+  ]
+}

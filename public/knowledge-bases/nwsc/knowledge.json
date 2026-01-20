@@ -1,0 +1,93 @@
+{
+  "crawl_date": "2025-12-29 21:56:11",
+  "source": "NWSC - National Water & Sewerage Corporation",
+  "total_entries": 2,
+  "global_contact_info": {
+    "phone_numbers": "0800300977 | 0800200977",
+    "toll_free": "",
+    "email": "info@nwsc.co.ug"
+  },
+  "services": [
+    {
+      "service_name": "NWSC Services Overview",
+      "category": "General Information",
+      "description": "To apply for a new water connection with the National Water and Sewerage Corporation (NWSC), here are the general steps you might need to follow",
+      "overview": "National Water & Sewerage Corporation provides water and sewerage services across Uganda",
+      "contact_info": {
+        "phone_numbers": "0800300977 | 0800200977",
+        "toll_free": "",
+        "email": "info@nwsc.co.ug"
+      },
+      "source_url": "https://www.nwsc.co.ug/",
+      "additional_info": "[\n  {\n    \"service_name\": \"Apply for a New Water Connection Today\",\n    \"description\": \"\",\n    \"action_link\": \"https://www.nwsc.co.ug/new-connections/\",\n    \"button_text\": \"NEW CONNECTION\"\n  },\n  {\n    \"service_name\": \"New water Connection\",\n    \"description\": \"\",\n    \"action_link\": \"https://www.nwsc.co.ug/new-connections/\",\n    \"button_text\": \"\"\n  },\n  {\n    \"service_name\": \"Manage Account Online\",\n    \"description\": \"\",\n    \"action_link\": \"https://apps.nwsc.co.ug/online/Default.aspx\",\n    \"button_text\": \"\"\n  },\n  {\n    \"service_name\": \"Water Quality Testing\",\n    \"description\": \"\",\n    \"action_link\": \"https://www.nwsc.co.ug/water-quality-tests/\",\n    \"button_text\": \"\"\n  },\n  {\n    \"service_name\": \"New Sewer Connection\",\n    \"description\": \"\",\n    \"action_link\": \"https://www.nwsc.co.ug/new-sewer-connection/\",\n    \"button_text\": \"\"\n  },\n  {\n    \"service_name\": \"Payment Options\",\n    \"description\": \"\",\n    \"action_link\": \"https://www.nwsc.co.ug/payment-options/\",\n    \"button_text\": \"\"\n  },\n  {\n    \"service_name\": \"TARIFF GUIDE\",\n    \"description\": \"\",\n    \"action_link\": \"https://www.nwsc.co.ug/tariff-guide/\",\n    \"button_text\": \"\"\n  },\n  {\n    \"service_name\": \"NEW WATER CONNECTION\",\n    \"description\": \"To apply for a new water connection with the National Water and Sewerage Corporation (NWSC), here are the general steps you might need to follow\",\n    \"action_link\": \"https://www.nwsc.co.ug/new-connections/\",\n    \"button_text\": \"APPLY NOW\"\n  }\n]"
+    },
+    {
+      "service_name": "Frequently Asked Questions",
+      "category": "FAQs",
+      "overview": "Common questions and answers about NWSC services",
+      "faqs": [
+        {
+          "category": "New Connection",
+          "question": "How do I get a new connection to my premises?",
+          "answer": "Navigate to New connection followed by Apply Now and fill out required details in the form."
+        },
+        {
+          "category": "New Connection",
+          "question": "How do i get a meter separation?",
+          "answer": "Reach out to your respective relationship manager, they will guide accordingly."
+        },
+        {
+          "category": "New Connection",
+          "question": "how much does it cost to get connected?",
+          "answer": "The cost of new connection will vary according to the size of the meter and the consumption category. The price of the materials varies depending on the distance from the customers house to the main water line."
+        },
+        {
+          "category": "New Connection",
+          "question": "How long will it take to get connected?",
+          "answer": "Connecting the service and meter installation  within seven days upon full payment of required costs."
+        },
+        {
+          "category": "Billing and Payments",
+          "question": "What are the available options for clearence of NWSC service consumption and non-consumption charges ?",
+          "answer": "Payments can be achieved digitally via MTN Mobile Money platform, VISA or MasterCard."
+        },
+        {
+          "category": "Billing and Payments",
+          "question": "Under what circumstances will a connection be terminated?",
+          "answer": "You are eligible for disconnection if you have balance carried forward from a previous bill."
+        },
+        {
+          "category": "Billing and Payments",
+          "question": "How long does reconnection take after illegal connection fine has been paid?",
+          "answer": "Under account profile you will find contact details of your relationship manager, get in touch they will advise you."
+        },
+        {
+          "category": "Billing and Payments",
+          "question": "What is an estimated bill??",
+          "answer": "Your bill is normally based off an actual reading of your water meter. However, an estimate is used when your meter is inaccessible on the day it was scheduled to be read."
+        },
+        {
+          "category": "Service Account",
+          "question": "How do I Signup?",
+          "answer": "Landlords are required to activate their account for E-services where tenants are encouraged to avail their details through the Signup option. For landlords an OTP code will be sent to the contact that is attached to your account."
+        },
+        {
+          "category": "Service Account",
+          "question": "What can I do with the NWSC Service account?",
+          "answer": "With the NWSC Service account, you should be able to view your consumption trends, outstanding balance, transactions (historical bills and payments, customer statement), predict monthly bill, report concerns, access corporation social media pages."
+        },
+        {
+          "category": "Service Account",
+          "question": "I have forgotten my password; how may I recover it?",
+          "answer": "Use the option Forgot Password on the Sign in screen, provide your customer reference. An OTP is sent to the contact that is attached to your account."
+        },
+        {
+          "category": "Service Account",
+          "question": "What do i do when i have a query concerning my account?",
+          "answer": "Reach out to us by filling in the feedback form, chatting with our readily available customer care team or posting on any of our social media pages."
+        }
+      ],
+      "source_url": "https://apps.nwsc.co.ug/online/FAQ.aspx"
+    }
+  ]
+}

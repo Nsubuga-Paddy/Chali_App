@@ -1,0 +1,19 @@
+{
+  "company": "DStv",
+  "lastUpdated": "2024-11-20",
+  "version": "1.0",
+  "products": [
+    {
+      "title": "Placeholder - Add DStv knowledge base here",
+      "product_name": "DStv Services",
+      "description": "Replace this file with actual DStv knowledge base",
+      "pricing": "To be added",
+      "activation": "To be added",
+      "deactivation": "To be added",
+      "faqs": "To be added",
+      "eligibility": "To be added",
+      "terms": "To be added"
+    }
+  ]
+}
+
