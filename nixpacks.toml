@@ -5,17 +5,15 @@ nixPkgs = ["nodejs-18_x", "python311", "python311Packages.pip", "python311Packag
 cmds = [
   "npm ci --omit=dev --ignore-scripts || npm install --omit=dev",
   "python -m venv venv",
-  "source venv/bin/activate",
-  "pip install --no-cache-dir -r requirements.txt"
+  "venv/bin/pip install --no-cache-dir -r requirements.txt"
 ]
 
 [phases.build]
 cmds = [
-  "source venv/bin/activate",
   "echo 'Converting knowledge bases to chunks (if needed)...'",
-  "python convert_mtn_to_chunks.py || echo 'Warning: MTN chunks conversion skipped (may already exist)'",
+  "venv/bin/python convert_mtn_to_chunks.py || echo 'Warning: MTN chunks conversion skipped (may already exist)'",
   "echo 'Building vector databases...'",
-  "python build_all_vector_dbs.py || echo 'Warning: Some vector databases may not have been built'",
+  "venv/bin/python build_all_vector_dbs.py || echo 'Warning: Some vector databases may not have been built'",
   "npm run build"
 ]
 
