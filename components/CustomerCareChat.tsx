@@ -10,6 +10,7 @@ import {
   loadCustomerCareChatHistory, 
   saveCustomerCareMessage 
 } from '@/lib/customerCareChatService'
+import { Timestamp } from 'firebase/firestore'
 
 interface Message {
   id: string
@@ -122,7 +123,11 @@ export default function CustomerCareChat({ contact, onBack, user }: CustomerCare
             id: msg.id || `msg_${Date.now()}_${Math.random()}`,
             type: msg.type === 'user' ? 'user' : 'agent',
             content: msg.content,
-            timestamp: msg.timestamp instanceof Date ? msg.timestamp : new Date(msg.timestamp),
+            timestamp: msg.timestamp instanceof Date 
+              ? msg.timestamp 
+              : msg.timestamp instanceof Timestamp 
+              ? msg.timestamp.toDate() 
+              : new Date(msg.timestamp),
             quickReplies: msg.quickReplies,
             provider: msg.provider,
             source: msg.source,
