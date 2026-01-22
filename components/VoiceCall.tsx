@@ -75,8 +75,30 @@ export default function VoiceCall({ company, onEndCall, user }: VoiceCallProps) 
       // Reset conversation history for new call
       setConversationHistory([])
 
+      // Detect iOS (Web Speech API not supported) and mobile for behavior adjustments
+      const isIOS = typeof navigator !== 'undefined' && /iPhone|iPad|iPod/.test(navigator.userAgent)
+      const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+
+      if (isIOS) {
+        setError('Voice calls aren\'t supported on this device. Please use the text chat.')
+        setStatus('Unsupported')
+        return
+      }
+
       // Request microphone permission
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+      let stream: MediaStream
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+      } catch (micErr: any) {
+        if (micErr?.name === 'NotAllowedError' || micErr?.message?.toLowerCase().includes('permission')) {
+          setError('Microphone access is required for voice calls. Please allow it in your browser settings.')
+          setStatus('Permission denied')
+        } else {
+          setError(micErr?.message || 'Could not access microphone. Please check your device settings.')
+          setStatus('Connection failed')
+        }
+        return
+      }
       
         // Helper function to process transcript (defined before recognition setup)
         const processTranscript = async (transcript: string) => {
@@ -190,34 +212,50 @@ export default function VoiceCall({ company, onEndCall, user }: VoiceCallProps) 
         recognition.onerror = (event: any) => {
           console.error('Speech recognition error:', event.error)
           isRecognitionActiveRef.current = false
-          
+          setIsListening(false)
+
+          // Clear speech timeout when we're not restarting
+          if (speechTimeoutRef.current) {
+            clearTimeout(speechTimeoutRef.current)
+            speechTimeoutRef.current = null
+          }
+
           // If aborted intentionally (during cleanup), don't restart
           if (event.error === 'aborted' && wasAbortedRef.current) {
             console.log('ℹ️ Recognition was intentionally aborted, not restarting')
-            wasAbortedRef.current = false // Reset flag
+            wasAbortedRef.current = false
             return
           }
-          
-          // Don't show error for "no-speech" as it's normal
-          if (event.error !== 'no-speech' && event.error !== 'aborted') {
-            setError(`Speech recognition error: ${event.error}`)
+
+          // Fatal errors: don't restart, show friendly message
+          const fatalErrors = ['aborted', 'not-allowed', 'not-supported', 'no-speech', 'network', 'service-not-allowed']
+          if (fatalErrors.includes(event.error)) {
+            if (event.error === 'not-allowed') {
+              setError('Microphone access was denied. Please allow it in your browser settings, or use the text chat.')
+            } else if (event.error === 'not-supported' || event.error === 'service-not-allowed') {
+              setError('Speech recognition isn\'t available on this device. Please use the text chat.')
+            } else if (event.error === 'network') {
+              setError('Voice requires an internet connection. Please check your connection and try again.')
+            }
+            // no-speech and aborted: no user-facing error
+            return
           }
-          
-          // Restart if still connected and not a fatal/aborted error
-          // Use refs to avoid closure issues
-          if (isConnectedRef.current && event.error !== 'aborted' && event.error !== 'not-allowed') {
+
+          // Non-fatal: show generic error
+          setError(`Speech recognition error: ${event.error}`)
+
+          // Restart only for non-fatal errors
+          if (isConnectedRef.current && !wasAbortedRef.current) {
             setTimeout(() => {
               if (isConnectedRef.current && !isRecognitionActiveRef.current && !wasAbortedRef.current) {
                 try {
                   console.log('🔄 Restarting recognition after error...')
-                  recognitionRef.current.start()
+                  recognitionRef.current?.start()
                 } catch (e) {
                   console.error('❌ Failed to restart recognition:', e)
                 }
               }
-            }, 1000) // Increased delay to prevent rapid restarts
-          } else if (event.error === 'aborted') {
-            console.log('⏸️ Recognition aborted, not restarting (may be intentional cleanup)')
+            }, 1000)
           }
         }
 
@@ -225,22 +263,21 @@ export default function VoiceCall({ company, onEndCall, user }: VoiceCallProps) 
           console.log('🛑 Speech recognition ended')
           isRecognitionActiveRef.current = false
           setIsListening(false)
-          
+
           // If intentionally aborted, don't restart
           if (wasAbortedRef.current) {
             console.log('ℹ️ Recognition ended due to intentional abort, not restarting')
-            wasAbortedRef.current = false // Reset flag
+            wasAbortedRef.current = false
             return
           }
-          
+
           // Clear speech timeout on end
           if (speechTimeoutRef.current) {
             clearTimeout(speechTimeoutRef.current)
             speechTimeoutRef.current = null
           }
-          
+
           // Process any pending transcript if we have one and not already processing
-          // Use refs to avoid closure issues
           if (lastTranscriptRef.current && !isProcessingRef.current && isConnectedRef.current && !isMutedRef.current) {
             console.log('📋 Processing pending transcript on recognition end...')
             setTimeout(async () => {
@@ -249,27 +286,30 @@ export default function VoiceCall({ company, onEndCall, user }: VoiceCallProps) 
                 return
               }
             }, 500)
-            return // Don't restart yet, wait for processing
+            return
           }
-          
-          // Only restart if still connected, not muted, and not processing
-          // Don't restart if we're processing - audio.onended will handle that
-          // This restart is only for cases where recognition ended unexpectedly (not due to processing)
+
+          // On mobile, if recognition ended without any transcript (e.g. no-speech), don't auto-restart to avoid loops
+          if (isMobile && !lastTranscriptRef.current) {
+            setStatus('Say something to continue')
+            return
+          }
+
+          // Restart if still connected, not muted, and not processing
           if (isConnectedRef.current && !isMutedRef.current && !isProcessingRef.current && !wasAbortedRef.current) {
+            const delay = isMobile ? 3000 : 1000
             setTimeout(() => {
-              // Double-check conditions before restarting
               if (isConnectedRef.current && !isRecognitionActiveRef.current && !isMutedRef.current && !isProcessingRef.current && !wasAbortedRef.current) {
                 try {
                   console.log('🔄 Restarting recognition after onend (unexpected end)...')
-                  recognitionRef.current.start()
+                  recognitionRef.current?.start()
                 } catch (e: any) {
-                  // Ignore if already started or other error
                   if (!e.message?.includes('already started')) {
                     console.log('⏭️ Recognition restart skipped:', e.message)
                   }
                 }
               }
-            }, 1000) // Increased delay to prevent rapid restarts
+            }, delay)
           } else {
             console.log('⏸️ Not restarting recognition in onend - conditions not met:', {
               isConnected: isConnectedRef.current,
@@ -281,39 +321,33 @@ export default function VoiceCall({ company, onEndCall, user }: VoiceCallProps) 
         }
 
         recognitionRef.current = recognition
+
+        // Start recognition as soon as possible after setup (closer to user gesture on mobile)
+        if (!wasAbortedRef.current) {
+          try {
+            console.log('🎤 Starting recognition...')
+            recognition.start()
+          } catch (e: any) {
+            if (!e.message?.includes('already started')) {
+              console.error('❌ Failed to start recognition:', e)
+              setError('Failed to start speech recognition')
+            }
+          }
+        }
       } else {
-        setError('Speech recognition not supported in this browser')
+        setError('Speech recognition not supported in this browser. Please use the text chat.')
         return
       }
 
       // Connect to voice API
       await connectToVoiceAPI(stream)
-      
+
       setIsConnected(true)
       setStatus('Connected')
-      
-      // Wait a bit before starting recognition to ensure everything is ready
-      // This fixes the issue where first speech sometimes requires repetition
-      // Increased delay to give browser time to fully initialize
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      // Start listening (only if not already active and not aborted)
-      if (recognitionRef.current && !isRecognitionActiveRef.current && !wasAbortedRef.current) {
-        try {
-          console.log('🎤 Starting recognition after initialization delay...')
-          recognitionRef.current.start()
-        } catch (e: any) {
-          // If already started, that's okay
-          if (!e.message?.includes('already started')) {
-            console.error('❌ Failed to start recognition:', e)
-            setError('Failed to start speech recognition')
-          }
-        }
-      }
 
     } catch (err: any) {
       console.error('Voice initialization error:', err)
-      setError(err.message || 'Failed to initialize voice call')
+      setError(err?.message || 'Failed to initialize voice call')
       setStatus('Connection failed')
     }
   }
