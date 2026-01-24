@@ -1,41 +1,115 @@
 'use client'
 
-import { useState } from 'react'
-import { User, Lock, Mail, Phone, ArrowRight } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ArrowRight, Chrome, AlertTriangle } from 'lucide-react'
+import {
+  GoogleAuthProvider,
+  getRedirectResult,
+  setPersistence,
+  browserLocalPersistence,
+  signInWithPopup,
+  signInWithRedirect,
+} from 'firebase/auth'
+import { auth } from '@/lib/firebase'
 
 interface AuthProps {
   onLogin: (userData: any) => void
 }
 
 export default function Auth({ onLogin }: AuthProps) {
-  const [isLogin, setIsLogin] = useState(true)
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    password: '',
-  })
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    // Mock authentication - replace with real API call
-    const userData = {
-      id: Math.random().toString(36).substr(2, 9),
-      name: formData.name || 'User',
-      email: formData.email,
-      phone: formData.phone,
-      balance: 0,
+  // Finish Google Redirect sign-in (mobile-friendly fallback)
+  useEffect(() => {
+    const run = async () => {
+      try {
+        // Persist auth across refreshes
+        await setPersistence(auth, browserLocalPersistence)
+
+        const result = await getRedirectResult(auth)
+        if (!result?.user) return
+
+        const u = result.user
+        onLogin({
+          id: u.uid,
+          name: u.displayName || u.email || 'User',
+          email: u.email,
+          phone: u.phoneNumber,
+          avatar: u.photoURL,
+          balance: 0,
+        })
+      } catch (e: any) {
+        // Ignore "no redirect pending" style cases; show real auth errors
+        const msg = e?.message || 'Google sign-in failed'
+        // If it’s not a redirect-related empty result, surface it
+        if (!msg.toLowerCase().includes('redirect')) {
+          setError(msg)
+        }
+      }
     }
-    
-    onLogin(userData)
-  }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    run()
+    // onLogin is stable from parent, safe dependency
+  }, [onLogin])
+
+  const handleGoogleSignIn = async () => {
+    setError(null)
+    setIsLoading(true)
+
+    const provider = new GoogleAuthProvider()
+    provider.setCustomParameters({ prompt: 'select_account' })
+
+    // Popup works best on desktop; redirect is more reliable on mobile browsers.
+    const isMobile =
+      typeof navigator !== 'undefined' &&
+      /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+
+    try {
+      if (isMobile) {
+        await signInWithRedirect(auth, provider)
+        return
+      }
+
+      const result = await signInWithPopup(auth, provider)
+      const u = result.user
+      onLogin({
+        id: u.uid,
+        name: u.displayName || u.email || 'User',
+        email: u.email,
+        phone: u.phoneNumber,
+        avatar: u.photoURL,
+        balance: 0,
+      })
+    } catch (e: any) {
+      // Fallback to redirect if popup is blocked / unsupported
+      const code = e?.code || ''
+      const msg =
+        e?.message ||
+        'Google sign-in failed. Please try again or use a different browser.'
+
+      if (
+        code === 'auth/popup-blocked' ||
+        code === 'auth/popup-closed-by-user' ||
+        code === 'auth/cancelled-popup-request' ||
+        code === 'auth/operation-not-supported-in-this-environment'
+      ) {
+        try {
+          await signInWithRedirect(auth, provider)
+          return
+        } catch (e2: any) {
+          setError(e2?.message || msg)
+        }
+      } else if (code === 'auth/unauthorized-domain') {
+        setError(
+          'Unauthorized domain. Add your website domain in Firebase Console → Authentication → Settings → Authorized domains.'
+        )
+      } else {
+        setError(msg)
+      }
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -52,103 +126,34 @@ export default function Auth({ onLogin }: AuthProps) {
 
         {/* Auth Form */}
         <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 animate-slide-up">
-          <div className="flex mb-6 bg-gray-100 dark:bg-gray-700 rounded-xl p-1">
-            <button
-              type="button"
-              onClick={() => setIsLogin(true)}
-              className={`flex-1 py-2 px-4 rounded-lg font-medium transition-all ${
-                isLogin
-                  ? 'bg-white dark:bg-gray-800 text-primary-600 shadow-sm'
-                  : 'text-gray-600 dark:text-gray-400'
-              }`}
-            >
-              Login
-            </button>
-            <button
-              type="button"
-              onClick={() => setIsLogin(false)}
-              className={`flex-1 py-2 px-4 rounded-lg font-medium transition-all ${
-                !isLogin
-                  ? 'bg-white dark:bg-gray-800 text-primary-600 shadow-sm'
-                  : 'text-gray-600 dark:text-gray-400'
-              }`}
-            >
-              Sign Up
-            </button>
-          </div>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+            Sign in with Google
+          </h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+            Use your Gmail to create an account and start chatting with other users.
+          </p>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {!isLogin && (
-              <div className="relative">
-                <User className="absolute left-3 top-3 text-gray-400" size={20} />
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Full Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
-                  required={!isLogin}
-                />
-              </div>
-            )}
-
-            <div className="relative">
-              <Phone className="absolute left-3 top-3 text-gray-400" size={20} />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
-                required
-              />
-            </div>
-
-            {!isLogin && (
-              <div className="relative">
-                <Mail className="absolute left-3 top-3 text-gray-400" size={20} />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email (optional)"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
-                />
-              </div>
-            )}
-
-            <div className="relative">
-              <Lock className="absolute left-3 top-3 text-gray-400" size={20} />
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={formData.password}
-                onChange={handleChange}
-                className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
-                required
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all hover:shadow-lg"
-            >
-              {isLogin ? 'Login' : 'Create Account'}
-              <ArrowRight size={20} />
-            </button>
-          </form>
-
-          {isLogin && (
-            <div className="mt-4 text-center">
-              <a href="#" className="text-sm text-primary-600 hover:underline">
-                Forgot password?
-              </a>
+          {error && (
+            <div className="mb-4 p-3 rounded-xl bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 flex gap-2">
+              <AlertTriangle size={18} className="mt-0.5 flex-shrink-0" />
+              <div className="text-sm">{error}</div>
             </div>
           )}
+
+          <button
+            type="button"
+            onClick={handleGoogleSignIn}
+            disabled={isLoading}
+            className="w-full bg-white hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-semibold py-3 px-6 rounded-xl flex items-center justify-center gap-3 transition-all border border-gray-200 dark:border-gray-600 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            <Chrome size={20} />
+            <span>{isLoading ? 'Signing in…' : 'Continue with Google'}</span>
+            <ArrowRight size={20} className="ml-auto opacity-70" />
+          </button>
+
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">
+            If you see “unauthorized-domain”, add your web domain in Firebase Authorized domains.
+          </p>
         </div>
 
         <p className="text-center mt-6 text-white text-sm">
