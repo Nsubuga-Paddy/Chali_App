@@ -23,9 +23,10 @@ export default function Home() {
       const userData = {
         id: fbUser.uid,
         name: fbUser.displayName || fbUser.email || 'User',
-        email: fbUser.email,
-        phone: fbUser.phoneNumber,
-        avatar: fbUser.photoURL,
+        // Firebase returns string | null for these fields; convert null -> undefined for our types
+        email: fbUser.email ?? undefined,
+        phone: fbUser.phoneNumber ?? undefined,
+        avatar: fbUser.photoURL ?? undefined,
         balance: 0,
       }
 
