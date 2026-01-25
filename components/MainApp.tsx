@@ -1,12 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { MessageCircle, Wallet, User, Menu, X, Bot, Phone } from 'lucide-react'
+import { MessageCircle, Wallet, User, Menu, X, Phone } from 'lucide-react'
 import Chat from './Chat'
 import WalletView from './WalletView'
 import Profile from './Profile'
-import ChatbotModal from './ChatbotModal'
 import AdminCallHistory from './AdminCallHistory'
+import QuickPayAssistant from './QuickPayAssistant'
 
 interface MainAppProps {
   user: any
@@ -18,7 +18,6 @@ type View = 'chat' | 'wallet' | 'profile' | 'admin'
 export default function MainApp({ user, onLogout }: MainAppProps) {
   const [currentView, setCurrentView] = useState<View>('chat')
   const [showMobileMenu, setShowMobileMenu] = useState(false)
-  const [showChatbot, setShowChatbot] = useState(false)
   const [isInChatView, setIsInChatView] = useState(false)
 
   const navigation = [
@@ -115,21 +114,8 @@ export default function MainApp({ user, onLogout }: MainAppProps) {
         {currentView === 'admin' && <AdminCallHistory />}
         {currentView === 'profile' && <Profile user={user} onLogout={onLogout} />}
 
-        {/* Floating Chatbot Button - Only show when NOT in a chat conversation */}
-        {!isInChatView && (
-          <>
-            <button
-              onClick={() => setShowChatbot(true)}
-              className="fixed bottom-20 right-6 md:bottom-24 md:right-8 w-14 h-14 bg-gradient-to-br from-primary-500 to-primary-700 hover:from-primary-600 hover:to-primary-800 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 animate-fade-in group"
-              aria-label="Quick Payments Chatbot"
-            >
-              <Bot size={24} className="group-hover:scale-110 transition-transform" />
-            </button>
-
-            {/* Chatbot Modal */}
-            {showChatbot && <ChatbotModal onClose={() => setShowChatbot(false)} />}
-          </>
-        )}
+        {/* Floating Quick Payments Assistant */}
+        <QuickPayAssistant hidden={isInChatView} />
       </main>
 
       {/* Bottom navigation for mobile */}

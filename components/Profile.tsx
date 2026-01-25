@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   User,
   Bell,
@@ -17,28 +17,25 @@ import {
   Plus,
 } from 'lucide-react'
 import { useTheme } from './ThemeProvider'
+import { loadSavedAccounts, saveSavedAccounts, type SavedAccount } from '@/lib/savedAccounts'
 
 interface ProfileProps {
   user: any
   onLogout: () => void
 }
 
-interface SavedAccount {
-  id: string
-  type: string
-  label: string
-  number: string
-}
-
 export default function Profile({ user, onLogout }: ProfileProps) {
   const { theme, toggleTheme } = useTheme()
-  const [savedAccounts, setSavedAccounts] = useState<SavedAccount[]>([
-    { id: '1', type: 'Yaka', label: 'Home', number: '04123456789' },
-    { id: '2', type: 'Water', label: 'Main House', number: '123456789' },
-    { id: '3', type: 'Airtime', label: 'Mom', number: '0772123456' },
-  ])
+  const [savedAccounts, setSavedAccounts] = useState<SavedAccount[]>([])
   const [showAddAccount, setShowAddAccount] = useState(false)
   const [newAccount, setNewAccount] = useState({ type: 'Yaka', label: '', number: '' })
+
+  const userId = user?.id as string | undefined
+
+  useEffect(() => {
+    // Load saved accounts for this user from local storage
+    setSavedAccounts(loadSavedAccounts(userId))
+  }, [userId])
 
   const handleAddAccount = (e: React.FormEvent) => {
     e.preventDefault()
@@ -46,13 +43,17 @@ export default function Profile({ user, onLogout }: ProfileProps) {
       id: Date.now().toString(),
       ...newAccount,
     }
-    setSavedAccounts([...savedAccounts, account])
+    const next = [...savedAccounts, account]
+    setSavedAccounts(next)
+    saveSavedAccounts(next, userId)
     setNewAccount({ type: 'Yaka', label: '', number: '' })
     setShowAddAccount(false)
   }
 
   const handleDeleteAccount = (id: string) => {
-    setSavedAccounts(savedAccounts.filter((acc) => acc.id !== id))
+    const next = savedAccounts.filter((acc) => acc.id !== id)
+    setSavedAccounts(next)
+    saveSavedAccounts(next, userId)
   }
 
   return (
@@ -66,10 +67,12 @@ export default function Profile({ user, onLogout }: ProfileProps) {
             </div>
             <div className="flex-1">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{user.name}</h2>
-              <p className="text-gray-500 dark:text-gray-400 flex items-center gap-2 mt-1">
-                <Phone size={16} />
-                {user.phone}
-              </p>
+              {user.phone && (
+                <p className="text-gray-500 dark:text-gray-400 flex items-center gap-2 mt-1">
+                  <Phone size={16} />
+                  {user.phone}
+                </p>
+              )}
               {user.email && (
                 <p className="text-gray-500 dark:text-gray-400 flex items-center gap-2 mt-1">
                   <Mail size={16} />
@@ -88,7 +91,7 @@ export default function Profile({ user, onLogout }: ProfileProps) {
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Transactions</p>
             </div>
             <div className="text-center border-x border-gray-200 dark:border-gray-600">
-              <p className="text-2xl font-bold text-gray-900 dark:text-white">3</p>
+              <p className="text-2xl font-bold text-gray-900 dark:text-white">{savedAccounts.length}</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Saved Accounts</p>
             </div>
             <div className="text-center">
@@ -112,7 +115,15 @@ export default function Profile({ user, onLogout }: ProfileProps) {
           </div>
 
           <div className="divide-y divide-gray-200 dark:divide-gray-700">
-            {savedAccounts.map((account) => (
+            {savedAccounts.length === 0 ? (
+              <div className="p-6 text-center">
+                <p className="text-sm font-medium text-gray-900 dark:text-white">No saved accounts yet</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Add your meter/account numbers to speed up payments.
+                </p>
+              </div>
+            ) : (
+              savedAccounts.map((account) => (
               <div key={account.id} className="p-4 flex items-center gap-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                 <div className="flex-1">
                   <p className="font-semibold text-gray-900 dark:text-white">{account.label}</p>
@@ -127,7 +138,8 @@ export default function Profile({ user, onLogout }: ProfileProps) {
                   <Trash2 size={18} />
                 </button>
               </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
 
@@ -224,6 +236,7 @@ export default function Profile({ user, onLogout }: ProfileProps) {
                   <option value="Airtime">Airtime</option>
                   <option value="TV">TV</option>
                   <option value="School">School</option>
+                  <option value="URA">URA</option>
                 </select>
               </div>
 

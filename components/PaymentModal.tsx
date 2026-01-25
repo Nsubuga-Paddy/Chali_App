@@ -1,7 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { X, Zap, Droplet, Phone, Tv, GraduationCap, FileText, Users, CreditCard, Send, ArrowRight } from 'lucide-react'
+import { auth } from '@/lib/firebase'
+import { loadSavedAccounts, type SavedAccount } from '@/lib/savedAccounts'
 
 interface PaymentModalProps {
   type: string
@@ -23,6 +25,15 @@ const serviceConfig: Record<string, any> = {
   send_money: { name: 'Send Money', icon: Send, color: 'text-primary-600', placeholder: '' },
 }
 
+const SAVED_ACCOUNT_TYPE_BY_PAYMENT_TYPE: Record<string, string> = {
+  yaka: 'Yaka',
+  water: 'Water',
+  airtime: 'Airtime',
+  tv: 'TV',
+  school: 'School',
+  ura: 'URA',
+}
+
 export default function PaymentModal({ type, onClose, onComplete, recipient }: PaymentModalProps) {
   const [step, setStep] = useState(1)
   const [formData, setFormData] = useState({
@@ -36,6 +47,22 @@ export default function PaymentModal({ type, onClose, onComplete, recipient }: P
   const service = serviceConfig[type] || serviceConfig.yaka
   const Icon = service.icon
   const isSendMoney = type === 'send_money'
+
+  const [savedAccounts, setSavedAccounts] = useState<SavedAccount[]>([])
+  const [selectedSavedAccountId, setSelectedSavedAccountId] = useState<string>('manual')
+  const [manualAccount, setManualAccount] = useState<string>(recipient?.id || '')
+
+  useEffect(() => {
+    // Load saved accounts for the currently signed-in user (Google sign-in)
+    const uid = auth.currentUser?.uid
+    setSavedAccounts(loadSavedAccounts(uid))
+  }, [])
+
+  const matchingSavedAccounts = useMemo(() => {
+    const neededType = SAVED_ACCOUNT_TYPE_BY_PAYMENT_TYPE[type]
+    if (!neededType) return []
+    return savedAccounts.filter((a) => (a.type || '').toLowerCase() === neededType.toLowerCase())
+  }, [savedAccounts, type])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -107,10 +134,55 @@ export default function PaymentModal({ type, onClose, onComplete, recipient }: P
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Account / Number
                   </label>
+
+                  {matchingSavedAccounts.length > 0 && (
+                    <div className="mb-3">
+                      <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">
+                        Choose a saved {SAVED_ACCOUNT_TYPE_BY_PAYMENT_TYPE[type]} number (optional)
+                      </label>
+                      <select
+                        value={selectedSavedAccountId}
+                        onChange={(e) => {
+                          const next = e.target.value
+                          if (next === 'manual') {
+                            setSelectedSavedAccountId('manual')
+                            setFormData({ ...formData, account: manualAccount })
+                            return
+                          }
+
+                          // preserve manual entry when switching to a saved account
+                          if (selectedSavedAccountId === 'manual') {
+                            setManualAccount(formData.account)
+                          }
+
+                          const picked = matchingSavedAccounts.find((a) => a.id === next)
+                          if (picked) {
+                            setSelectedSavedAccountId(picked.id)
+                            setFormData({ ...formData, account: picked.number })
+                          }
+                        }}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
+                      >
+                        <option value="manual">Enter manually</option>
+                        {matchingSavedAccounts.map((a) => (
+                          <option key={a.id} value={a.id}>
+                            {a.label} • {a.number}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+
                   <input
                     type="text"
                     value={formData.account}
-                    onChange={(e) => setFormData({ ...formData, account: e.target.value })}
+                    onChange={(e) => {
+                      const val = e.target.value
+                      setFormData({ ...formData, account: val })
+                      if (selectedSavedAccountId === 'manual') {
+                        setManualAccount(val)
+                      }
+                    }}
                     placeholder={service.placeholder}
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
                     required
