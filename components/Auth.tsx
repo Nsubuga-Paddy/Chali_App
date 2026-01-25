@@ -1,57 +1,17 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { ArrowRight, Chrome, AlertTriangle } from 'lucide-react'
 import {
   GoogleAuthProvider,
-  getRedirectResult,
-  setPersistence,
-  browserLocalPersistence,
   signInWithPopup,
   signInWithRedirect,
 } from 'firebase/auth'
 import { auth } from '@/lib/firebase'
 
-interface AuthProps {
-  onLogin: (userData: any) => void
-}
-
-export default function Auth({ onLogin }: AuthProps) {
+export default function Auth() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-
-  // Finish Google Redirect sign-in (mobile-friendly fallback)
-  useEffect(() => {
-    const run = async () => {
-      try {
-        // Persist auth across refreshes
-        await setPersistence(auth, browserLocalPersistence)
-
-        const result = await getRedirectResult(auth)
-        if (!result?.user) return
-
-        const u = result.user
-        onLogin({
-          id: u.uid,
-          name: u.displayName || u.email || 'User',
-          email: u.email,
-          phone: u.phoneNumber,
-          avatar: u.photoURL,
-          balance: 0,
-        })
-      } catch (e: any) {
-        // Ignore "no redirect pending" style cases; show real auth errors
-        const msg = e?.message || 'Google sign-in failed'
-        // If it’s not a redirect-related empty result, surface it
-        if (!msg.toLowerCase().includes('redirect')) {
-          setError(msg)
-        }
-      }
-    }
-
-    run()
-    // onLogin is stable from parent, safe dependency
-  }, [onLogin])
 
   const handleGoogleSignIn = async () => {
     setError(null)
@@ -60,27 +20,21 @@ export default function Auth({ onLogin }: AuthProps) {
     const provider = new GoogleAuthProvider()
     provider.setCustomParameters({ prompt: 'select_account' })
 
-    // Popup works best on desktop; redirect is more reliable on mobile browsers.
-    const isMobile =
-      typeof navigator !== 'undefined' &&
-      /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+    // Redirect is more reliable on iOS Safari; on Android Chrome, popup often works and avoids redirect loops.
+    const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
+    const isIOS = /iPhone|iPad|iPod/i.test(ua)
 
     try {
-      if (isMobile) {
+      // Prefer redirect on iOS
+      if (isIOS) {
         await signInWithRedirect(auth, provider)
         return
       }
 
+      // Prefer popup elsewhere (desktop + Android)
       const result = await signInWithPopup(auth, provider)
-      const u = result.user
-      onLogin({
-        id: u.uid,
-        name: u.displayName || u.email || 'User',
-        email: u.email,
-        phone: u.phoneNumber,
-        avatar: u.photoURL,
-        balance: 0,
-      })
+      // Home page listens to onAuthStateChanged and will transition to app automatically
+      void result
     } catch (e: any) {
       // Fallback to redirect if popup is blocked / unsupported
       const code = e?.code || ''

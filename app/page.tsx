@@ -4,7 +4,13 @@ import { useState, useEffect } from 'react'
 import Auth from '@/components/Auth'
 import MainApp from '@/components/MainApp'
 import { registerUser } from '@/lib/userService'
-import { onAuthStateChanged, signOut } from 'firebase/auth'
+import {
+  browserLocalPersistence,
+  getRedirectResult,
+  onAuthStateChanged,
+  setPersistence,
+  signOut,
+} from 'firebase/auth'
 import { auth } from '@/lib/firebase'
 
 export default function Home() {
@@ -12,6 +18,22 @@ export default function Home() {
   const [user, setUser] = useState<any>(null)
 
   useEffect(() => {
+    // Important for mobile redirect flows: set persistence once and process redirect result once.
+    ;(async () => {
+      try {
+        await setPersistence(auth, browserLocalPersistence)
+      } catch (e) {
+        console.warn('Auth persistence could not be set:', e)
+      }
+
+      try {
+        // Even if we don't use the result directly, calling this clears any pending redirect state.
+        await getRedirectResult(auth)
+      } catch (e) {
+        console.warn('Redirect sign-in result error:', e)
+      }
+    })()
+
     // Use Firebase Auth as the source of truth (persists across refreshes)
     const unsubscribe = onAuthStateChanged(auth, async (fbUser) => {
       if (!fbUser) {
@@ -51,12 +73,6 @@ export default function Home() {
     return () => unsubscribe()
   }, [])
 
-  const handleLogin = async (userData: any) => {
-    // Auth.tsx passes Firebase-authenticated user data (id = uid)
-    setUser(userData)
-    setIsAuthenticated(true)
-  }
-
   const handleLogout = () => {
     signOut(auth).catch((e) => console.error('Sign out failed:', e))
   }
@@ -64,7 +80,7 @@ export default function Home() {
   return (
     <main className="h-screen w-screen overflow-hidden">
       {!isAuthenticated ? (
-        <Auth onLogin={handleLogin} />
+        <Auth />
       ) : (
         <MainApp user={user} onLogout={handleLogout} />
       )}
