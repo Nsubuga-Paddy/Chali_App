@@ -60,9 +60,9 @@ export default function Home() {
         await registerUser({
           id: fbUser.uid,
           name: userData.name,
-          email: userData.email,
-          phone: userData.phone,
-          avatar: userData.avatar,
+          email: fbUser.email ?? undefined,
+          phone: fbUser.phoneNumber ?? undefined,
+          avatar: fbUser.photoURL ?? undefined,
           createdAt: Date.now(),
         })
       } catch (error) {
