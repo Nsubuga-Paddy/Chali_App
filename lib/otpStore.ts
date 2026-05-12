@@ -4,6 +4,8 @@
  * consider switching to Firestore or Redis.
  */
 
+import { normalizePhone } from '@/lib/phoneNormalize'
+
 const OTP_TTL_MS = 10 * 60 * 1000 // 10 minutes
 
 interface StoredOtp {
@@ -12,13 +14,6 @@ interface StoredOtp {
 }
 
 const store = new Map<string, StoredOtp>()
-
-function normalizePhone(phone: string): string {
-  const digits = phone.replace(/\D/g, '')
-  if (digits.startsWith('0')) return '+256' + digits.slice(1)
-  if (!digits.startsWith('256')) return '+256' + digits
-  return '+' + digits
-}
 
 export function setOtp(phone: string, code: string): void {
   const key = normalizePhone(phone)

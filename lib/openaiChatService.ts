@@ -62,13 +62,25 @@ export async function generateAIResponse(
     console.error('❌ Error calling AI chat API:', error)
     console.error('Error message:', error.message)
     
-    // More helpful fallback messages based on error type
+    const msg = String(error?.message || '')
+    // Server returns plain English in `error` — surface deploy/config issues clearly
     let fallbackMessage = `I apologize, I'm having trouble connecting right now. `
-    
-    if (error.message?.includes('API key')) {
+    if (
+      msg.includes('No AI provider') ||
+      msg.includes('OPENAI_API_KEY') ||
+      msg.includes('Invalid OpenAI API key')
+    ) {
+      fallbackMessage =
+        `The assistant can't reach the AI service yet. If you're the app owner, add OPENAI_API_KEY in your hosting environment (e.g. Railway Variables) and redeploy. `
+    } else if (msg.includes('No knowledge base found')) {
+      fallbackMessage =
+        `No knowledge base is available for this company on the server. Check that public/knowledge-bases is deployed and the company name matches (e.g. MTN, NWSC). `
+    } else if (msg.includes('API key') || msg.includes('API configuration')) {
       fallbackMessage += `There's an issue with the API configuration. Please contact support.`
-    } else if (error.message?.includes('network') || error.message?.includes('fetch')) {
+    } else if (msg.includes('network') || msg.includes('fetch') || msg.includes('Failed to fetch')) {
       fallbackMessage += `Please check your internet connection and try again.`
+    } else if (msg.length > 0 && msg.length < 200 && !msg.startsWith('Failed to get response')) {
+      fallbackMessage += msg
     } else {
       fallbackMessage += `Please try again in a moment, or contact our support team directly for immediate assistance.`
     }

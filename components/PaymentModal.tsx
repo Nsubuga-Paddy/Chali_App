@@ -53,7 +53,7 @@ export default function PaymentModal({ type, onClose, onComplete, recipient }: P
   const [manualAccount, setManualAccount] = useState<string>(recipient?.id || '')
 
   useEffect(() => {
-    // Load saved accounts for the currently signed-in user (Google sign-in)
+    // Load saved accounts for the currently signed-in user
     const uid = auth.currentUser?.uid
     setSavedAccounts(loadSavedAccounts(uid))
   }, [])

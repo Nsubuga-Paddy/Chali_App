@@ -3,6 +3,7 @@ import { initializeApp, getApps, getApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { getDatabase } from 'firebase/database'
 import { getFirestore } from 'firebase/firestore'
+import { getStorage } from 'firebase/storage'
 
 // Your Firebase configuration
 // TODO: Replace with your actual Firebase config from Firebase Console
@@ -23,6 +24,7 @@ const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp()
 export const auth = getAuth(app)
 export const db = getDatabase(app) // Realtime Database for chat
 export const firestore = getFirestore(app) // Firestore for structured data
+export const storage = getStorage(app)
 
 export default app
 
